@@ -13,6 +13,9 @@ const server = new ApolloServer({
   },
 });
 
-server.listen().then(() => {
-  console.log("Sever is runing on http://localhost:4000");
-});
+async function startApolloServer(server) {
+  const { url, port } = await server.listen({ port: process.env.PORT || 4000 });
+  console.log(`Sever is runing on http://localhost:${port}`);
+}
+
+startApolloServer(server);
