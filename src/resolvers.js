@@ -17,6 +17,28 @@ const resolvers = {
     },
   },
 
+  Mutation: {
+    incrementTrackViews: async (_, { id }, { dataSources }) => {
+      try {
+        const track = await dataSources.trackAPI.incrementTrackViews(id);
+
+        return {
+          code: 200,
+          success: true,
+          message: `Successfully increment number of views for track ${id}`,
+          track,
+        };
+      } catch (err) {
+        return {
+          code: err.extensions.response.status,
+          success: false,
+          message: err.extensions.response.body,
+          track: null,
+        };
+      }
+    },
+  },
+
   /* 
     This is link with Track type in schema.js, 
     to let apollo know the author in Track type 

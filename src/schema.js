@@ -31,6 +31,18 @@ const typeDefs = gql`
     tracksListAxios: [Track!]!
     track(id: ID!): Track
   }
+
+  "Part 4 Mutation"
+  type Mutation {
+    incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
+  }
+
+  type IncrementTrackViewsResponse {
+    code: Int!
+    success: Boolean!
+    message: String!
+    track: Track
+  }
 `;
 
 module.exports = typeDefs;
