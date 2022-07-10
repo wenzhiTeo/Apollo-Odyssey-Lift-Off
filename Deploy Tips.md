@@ -21,3 +21,6 @@ git subtree push --prefix client heroku-server master
 ```
 git remote -v
 ```
+
+### Git create branch with subtree
+git subtree push --prefix client origin client   
