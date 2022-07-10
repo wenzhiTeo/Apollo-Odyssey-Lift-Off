@@ -23,4 +23,8 @@ git remote -v
 ```
 
 ### Git create branch with subtree
+```
 git subtree push --prefix client origin client   
+```
+
+### Better seprate the server and client into different git repo for better mangement
